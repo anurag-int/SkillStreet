@@ -39,7 +39,7 @@ exports.updateNote = async(req, res) => {
     }
 }
 
-exports.getNotes = async(req, res) => {
+exports.getNote = async(req, res) => {
     try{
 
     }
