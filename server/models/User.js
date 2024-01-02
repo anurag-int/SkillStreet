@@ -21,10 +21,6 @@ const UserSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    note : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Note"
-    },
     token: {
         type: String,
     },

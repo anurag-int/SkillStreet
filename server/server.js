@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 const database = require("./config/database");
 database.connect();
 app.use(express.json());
+app.use(cookieParser());
 
 const noteRoutes = require("./routes/Note");
 const userRoutes = require("./routes/User");
