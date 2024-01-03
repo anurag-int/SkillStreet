@@ -96,7 +96,14 @@ exports.login = async (req, res) => {
       // Save token to user document in database
       user.token = token;
       user.password = undefined;
+
+      setTimeout(async () => {
+        user.token = undefined;
+        await user.save();
+      }, 24*60*60*1000);
+
       // Set cookie for token and return success response
+
       const options = {
         expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
         httpOnly: true,
@@ -122,3 +129,12 @@ exports.login = async (req, res) => {
     });
   }
 };
+
+
+exports.logout = async(req, res) => {
+  res.clearCookie('token');
+    return res.status(200).json({
+        success: true,
+        message: 'User logged out successfully'
+    });
+}

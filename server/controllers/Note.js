@@ -69,7 +69,7 @@ exports.deleteNote = async(req, res) => {
 
 exports.updateNote = async(req, res) => {
     try{
-        const { id } = req.query;
+        const id = req.params.id;
         const { title, content } = req.body;
 
         if(!title || !content){
@@ -140,7 +140,7 @@ exports.getNotes = async(req, res) => {
 
 exports.getSpecificNote = async(req, res) => {
     try{
-        const {id} = req.query;
+        const id = req.params.id;
         const notes = await Note.findOne({_id : id});
         
         if (!notes || notes.length === 0) {
