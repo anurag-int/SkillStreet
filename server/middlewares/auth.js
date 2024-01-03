@@ -16,7 +16,7 @@ exports.auth = async(req, res, next) => {
         if(!token){
             return res.status(401).json({
                 success : false,
-                message : `Token is missing`
+                message : `Login please`
             });
         }
 
@@ -37,7 +37,7 @@ exports.auth = async(req, res, next) => {
         console.log(error.message);
         return res.status(401).json({
             success : false,
-            message : `Something went wrong while valadating the token`
+            message : `Login please`
         });
     }
 } 
