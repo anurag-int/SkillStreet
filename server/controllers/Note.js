@@ -39,7 +39,7 @@ exports.createNote = async(req, res) => {
 
 exports.deleteNote = async(req, res) => {
     try{
-        const { id } = req.query;
+        const id = req.params.id;
         console.log(id); // Check if id is received correctly
 
 
