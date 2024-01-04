@@ -16,7 +16,7 @@ const userRoutes = require("./routes/User");
 
 // routes
 app.use("/api/v1/note", noteRoutes);
-app.use("/api/v1/auth", userRoutes);
+app.use("/auth", userRoutes);
 
 app.get("/", (req, res) => {
     res.send("Welcome to Home Page");
